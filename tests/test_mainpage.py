@@ -51,7 +51,14 @@ class TestMainPage:
         assert after_counter == '2' and before_counter < after_counter
 
     @allure.title('Checking the successful order creation')
-    def test_successful_order(self, driver, signin):
+    def test_successful_order(self, driver, create_user):
+        accpage = AccountPage(driver)
+        accpage.go_to_site(Urls.url_main)
+        accpage.click_element(MainPageLocators.ENTER_BUTTON)
+        accpage.send_keys(AuthPageLocators.INPUT_EMAIL, create_user[0][0])
+        accpage.send_keys(AuthPageLocators.INPUT_PASSWORD, create_user[0][1])
+        accpage.click_element(AuthPageLocators.ENTER_BUTTON)
+        accpage.wait_until_element_visibility(10, MainPageLocators.CONSTRUCTOR_TITLE)
         main_page = MainPage(driver)
         main_page.find_element(MainPageLocators.INGREDIENT_BUN)
         main_page.add_bun_to_basket()

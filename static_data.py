@@ -6,3 +6,4 @@ class Urls:
     url_reset = 'https://stellarburgers.nomoreparties.site/reset-password'
     url_history = 'https://stellarburgers.nomoreparties.site/account/order-history'
     url_feed = 'https://stellarburgers.nomoreparties.site/feed'
+    auth_user = 'https://stellarburgers.nomoreparties.site/api/auth/user'

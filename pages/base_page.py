@@ -1,13 +1,14 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
+from static_data import Urls
 
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    def go_to_site(self, url='https://stellarburgers.nomoreparties.site/'):
+    def go_to_site(self, url=Urls.url_main):
         return self.driver.get(url)
 
     def get_current_url(self):
